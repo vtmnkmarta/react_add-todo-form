@@ -67,6 +67,7 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
           data-cy="titleInput"
           value={title}
           onChange={handleTitleChange}
+          required
         />
         {titleError && <span className="error">{titleError}</span>}
       </div>
@@ -76,6 +77,7 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
           data-cy="userSelect"
           value={owner}
           onChange={handleOwnerIdChange}
+          required
         >
           <option value="0" disabled>
             Choose a user
