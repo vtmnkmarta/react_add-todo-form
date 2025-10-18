@@ -60,11 +60,12 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} noValidate>
       <div className="field">
         <input
           type="text"
           data-cy="titleInput"
+          placeholder="Enter a title"
           value={title}
           onChange={handleTitleChange}
           required
