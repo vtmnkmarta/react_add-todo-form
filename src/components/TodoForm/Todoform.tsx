@@ -38,7 +38,7 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (!title) {
+    if (!title.trim()) {
       setTitleError('Please enter a title');
     }
 
@@ -46,7 +46,7 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
       setownerError('Please choose a user');
     }
 
-    if (!title || owner === 0) {
+    if (!title.trim() || owner === 0) {
       return;
     }
 
@@ -62,34 +62,40 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
   return (
     <form onSubmit={handleSubmit} noValidate>
       <div className="field">
-        <input
-          type="text"
-          data-cy="titleInput"
-          placeholder="Enter a title"
-          value={title}
-          onChange={handleTitleChange}
-          required
-        />
+        <label>
+          Title
+          <input
+            type="text"
+            data-cy="titleInput"
+            placeholder="Enter a title"
+            value={title}
+            onChange={handleTitleChange}
+            required
+          />
+        </label>
         {titleError && <span className="error">{titleError}</span>}
       </div>
 
       <div className="field">
-        <select
-          data-cy="userSelect"
-          value={owner}
-          onChange={handleOwnerIdChange}
-          required
-        >
-          <option value="0" disabled>
-            Choose a user
-          </option>
-
-          {users.map(user => (
-            <option value={user.id} key={user.id}>
-              {user.name}
+        <label>
+          User
+          <select
+            data-cy="userSelect"
+            value={owner}
+            onChange={handleOwnerIdChange}
+            required
+          >
+            <option value="0" disabled>
+              Choose a user
             </option>
-          ))}
-        </select>
+
+            {users.map(user => (
+              <option value={user.id} key={user.id}>
+                {user.name}
+              </option>
+            ))}
+          </select>
+        </label>
 
         {ownerError && <span className="error">{ownerError}</span>}
       </div>

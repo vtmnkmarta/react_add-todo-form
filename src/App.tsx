@@ -30,9 +30,13 @@ export const App = () => {
   const [todos, setTodos] = useState<Todo[]>(todosFromServer);
 
   const handleAddTodo = (todo: Omit<Todo, 'id'>) => {
-    const maxId = Math.max(...todos.map(({ id }) => id));
+    setTodos(currentTodos => {
+      const maxId = currentTodos.length
+        ? Math.max(...currentTodos.map(({ id }) => id))
+        : 0;
 
-    setTodos(currentTodos => [...currentTodos, { ...todo, id: maxId + 1 }]);
+      return [...currentTodos, { ...todo, id: maxId + 1 }];
+    });
   };
 
   const aggregatedTodos = createToDoAggregates(todos, usersFromServer);
