@@ -1,4 +1,4 @@
-import { Todo } from '../components/Types/Todo';
+import { Todo } from '../types/todo';
 
 const todos: Todo[] = [
   {

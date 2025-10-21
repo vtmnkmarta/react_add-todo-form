@@ -3,11 +3,11 @@ import './App.scss';
 import React, { useState } from 'react';
 import usersFromServer from './api/users';
 import todosFromServer from './api/todos';
-import { TodoAggregate } from './components/Types/TodoAggregate';
 import { TodoList } from './components/TodoList';
 import { TodoForm } from './components/TodoForm';
-import { Todo } from './components/Types/Todo';
-import { User } from './components/Types/User';
+import { Todo } from './types/todo';
+import { User } from './types/user';
+import { TodoAggregate } from './types/todoAggregate';
 
 const createToDoAggregates = (
   todosFromServerPar: Todo[],

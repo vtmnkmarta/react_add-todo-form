@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { Nullable } from '../Types/Nullable';
-import { User } from '../Types/User';
-import { Todo } from '../Types/Todo';
+import { Nullable } from '../../types/nullable-type';
+import { User } from '../../types/user';
+import { Todo } from '../../types/todo';
 
 export type UserListProps = {
   onSubmit: (todo: Omit<Todo, 'id'>) => void;
@@ -14,7 +14,7 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
   const [titleError, setTitleError] = useState<Nullable<string>>(null);
 
   const [owner, setOwner] = useState<number>(0);
-  const [ownerError, setownerError] = useState<Nullable<string>>(null);
+  const [ownerError, setOwnerError] = useState<Nullable<string>>(null);
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitleError(null);
@@ -23,7 +23,7 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
   };
 
   const handleOwnerIdChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setownerError(null);
+    setOwnerError(null);
 
     setOwner(+event.target.value);
   };
@@ -32,7 +32,7 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
     setTitle('');
     setTitleError(null);
     setOwner(0);
-    setownerError(null);
+    setOwnerError(null);
   };
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -43,7 +43,7 @@ export const TodoForm: React.FC<UserListProps> = ({ onSubmit, users }) => {
     }
 
     if (owner === 0) {
-      setownerError('Please choose a user');
+      setOwnerError('Please choose a user');
     }
 
     if (!title.trim() || owner === 0) {

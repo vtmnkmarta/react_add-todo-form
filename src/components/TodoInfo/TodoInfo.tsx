@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { TodoAggregate } from '../Types/TodoAggregate';
+import { TodoAggregate } from '../../types/todoAggregate';
 import { UserInfo } from '../UserInfo';
 
 export type Props = {

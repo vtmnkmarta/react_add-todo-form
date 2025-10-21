@@ -1,7 +1,7 @@
 // import { Todo } from '../Types/ToDo';
 import React from 'react';
 import { TodoInfo } from '../TodoInfo';
-import { TodoAggregate } from '../Types/TodoAggregate';
+import { TodoAggregate } from '../../types/todoAggregate';
 
 export type ListProps = {
   todos: TodoAggregate[];
